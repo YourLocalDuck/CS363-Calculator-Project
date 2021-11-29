@@ -7,7 +7,7 @@
 class TreeBuilder
 {
 private:
-    Node* root;
+    Node* Root;
     int middleIndex(std::string str);
 public:
     TreeBuilder(std::string postfix);
@@ -22,12 +22,20 @@ int TreeBuilder::middleIndex(std::string str)
 
 TreeBuilder::TreeBuilder(std::string postfix)
 {
-    buildBST(postfix, 0, postfix.length());
+    Root = buildBST(postfix, 0, postfix.length());
 }
 
 TreeBuilder::~TreeBuilder()
 {
+    delete Root;
 }
 
+Node* TreeBuilder::buildBST(std::string pfExp, int start, int end)
+{
+    Node* root = new Node(pfExp[middleIndex(pfExp)]);
+    root->right = buildBST(pfExp, middleIndex(pfExp), end);
+    root->left = buildBST(pfExp, start, middleIndex(pfExp));
+    return root;
+}
 
 #endif
