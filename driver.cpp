@@ -4,6 +4,10 @@
 #include <iostream>
 #include <string>
 
+// COMMENT This is considered an incomplete solution. You are supposed to be
+// going from infix to tree, and then solving the tree using the visitor pattern.
+// From what I see, you are using the approach in assignment 3.
+
 int priority(char op)
 {
 	switch (op)

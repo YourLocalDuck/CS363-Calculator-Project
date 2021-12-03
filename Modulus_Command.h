@@ -3,6 +3,9 @@
 
 #include "Expr_Command.h"
 
+// COMMENT Separate the class definition and class implementation into
+// a header and source file, respectively.
+
 class Modulus_Command : public Expr_Command
 {
 private:
