@@ -1,41 +1,30 @@
 #ifndef TREEBUILDER_H_EXISTS
 #define TREEBUILDER_H_EXISTS
 
-#include "Node.h"
+#include "Expr_Node.h"
 #include <string>
+#include "Stack.h"
+
+#define maxDigits 9
 
 class TreeBuilder
 {
-private:
-    Node* Root;
-    int middleIndex(std::string str);
+protected:
+    Expr_Node* Root;
+    Stack<char> stackChar;
+    void switchNodes(Expr_Node* node1, Expr_Node* node2);
+    
 public:
-    TreeBuilder(std::string postfix);
+    TreeBuilder();
     ~TreeBuilder();
-    Node* buildBST(std::string pfExp, int start, int end);
+    virtual Expr_Node* getRoot();
+    //virtual void start_expression(void);
+    virtual void build_number(int value);
+    virtual void add_operator(void);
+    virtual void subtract_operator(void);
+
+    virtual void open_parenthesis(void);
+    virtual void close_parenthesis(void);
 };
-
-int TreeBuilder::middleIndex(std::string str)
-{
-    return str.length()/2;
-}
-
-TreeBuilder::TreeBuilder(std::string postfix)
-{
-    Root = buildBST(postfix, 0, postfix.length());
-}
-
-TreeBuilder::~TreeBuilder()
-{
-    delete Root;
-}
-
-Node* TreeBuilder::buildBST(std::string pfExp, int start, int end)
-{
-    Node* root = new Node(pfExp[middleIndex(pfExp)]);
-    root->right = buildBST(pfExp, middleIndex(pfExp), end);
-    root->left = buildBST(pfExp, start, middleIndex(pfExp));
-    return root;
-}
 
 #endif

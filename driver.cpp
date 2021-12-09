@@ -1,140 +1,12 @@
-#include "Stack.h"
-#include "Queue.h"
-#include "Fixed_Array.h"
+#include "Calculator.h"
 #include <iostream>
 #include <string>
 
-int priority(char op)
-{
-	switch (op)
-	{
-	case '+':
-		return 0;
-		break;
-	case '-':
-		return 0;
-		break;
-	case '*':
-		return 1;
-		break;
-	case '/':
-		return 1;
-		break;
-	case '%':
-		return 1;
-		break;
-	case '^':
-		return 2;
-		break;
-	default:
-		return -1;
-		break;
-	}
-}
-
-std::string infixToPostFix(std::string s)
-{
-	std::string pfExpression;
-	Stack<char> st;
-	for (int i = 0; i < s.length(); i++)
-	{
-		char op = s[i];
-
-		if ((op >= '0' && op <= '9'))
-			pfExpression += op;
-		else if (op == '(')
-		{
-			st.push('(');
-		}
-		else if (op == ')')
-		{
-			while (st.top() != '(')
-			{
-				pfExpression += st.top();
-				st.pop();
-			}
-			st.pop();
-		}
-
-		else
-		{
-			while (st.is_empty() == false && priority(s[i]) <= priority(st.top()))
-			{
-				pfExpression += st.top();
-				st.pop();
-			}
-			st.push(op);
-		}
-	}
-	while (!st.is_empty())
-	{
-		pfExpression += st.top();
-		st.pop();
-	}
-
-	return pfExpression;
-}
-
-int solvePostFixExp(std::string pfExpression)
-{
-	Stack<int> solveStack;
-	for (int i = 0; i < pfExpression.length(); i++)
-	{
-		if (pfExpression[i] == ' ')
-		{
-		}
-		else if (pfExpression[i] >= '0' && pfExpression[i] <= '9')
-		{
-			int num = (int)(pfExpression[i] - '0');
-
-			solveStack.push(num);
-		}
-		else
-		{
-			if (solveStack.is_empty())
-				return -1;
-			int operand1 = solveStack.top();
-			solveStack.pop();
-			if (solveStack.is_empty())
-				return -1;
-			int operand2 = solveStack.top();
-			solveStack.pop();
-
-			switch (pfExpression[i])
-			{
-			case '+':
-				solveStack.push(operand1 + operand2);
-				break;
-			case '-':
-				solveStack.push(operand1 - operand2);
-				break;
-			case '*':
-				solveStack.push(operand1 * operand2);
-				break;
-			case '/':
-				solveStack.push(operand1 / operand2);
-				break;
-			case '%':
-				solveStack.push(operand1 % operand2);
-				break;
-			default:
-				break;
-			}
-		}
-	}
-	return solveStack.top();
-	solveStack.pop();
-}
-
-int solveInfixExpression(std::string ifExpression)
-{
-	std::string pfExpression = infixToPostFix(ifExpression);
-	int solution = solvePostFixExp(pfExpression);
-	return solution;
-}
-
+#include "Expr_Node.h"
 int main(int argc, char *argv[])
 {
+	Calculator calc;
+
 	std::string exp;
 	bool keepGoing = true;
 	while (keepGoing)
@@ -146,8 +18,19 @@ int main(int argc, char *argv[])
 			keepGoing = false;
 			break;
 		}
-		int output = solveInfixExpression(exp);
-		std::cout << output << std::endl;
+		if (calc.insert(exp))
+        {
+            std::cout << calc.evaluate() << std::endl;
+        }
+        else
+        {
+            std::cout << "Invalid Expression" << std::endl;
+        }
 	}
+
+	int p[123] = {0};
+	p['+'] = p['-'] = 1, p['/'] = p['*'] = 2, p['^'] = 3,
+    p[')'] = 0;
+	
 	return 0;
 }
