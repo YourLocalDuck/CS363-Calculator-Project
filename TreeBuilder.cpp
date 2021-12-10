@@ -13,36 +13,12 @@ TreeBuilder::~TreeBuilder()
 
 void TreeBuilder::build_number(int value)
 {
-    /*if (this->Root == nullptr)
-    {
-        Root = new Number_Node(value);
-    }
-    else if (Root->openChild())
-    {
-        Expr_Node* newchild = new Number_Node(value);
-        Root->insert(2, newchild);
-    }
-    std::cout << Root << std::endl;*/
-
     Expr_Node* newNumber = new Number_Node(value);
     TreeHelper.push(newNumber);
 }
 
 void TreeBuilder::add_operator(void)
 {
-    /*if (Root->openChild())
-    {
-        Add_Expr_Node* newchild = new Add_Expr_Node();
-        Root->insert(2, newchild);
-    }
-    else
-    {
-        Add_Expr_Node* newchild = new Add_Expr_Node();
-        newchild->insert(1, Root);
-        Root = newchild;
-    }
-    std::cout << Root << std::endl;*/
-    
     Expr_Node* right_ = TreeHelper.top();
     TreeHelper.pop();
     Expr_Node* left_ = TreeHelper.top();
@@ -89,16 +65,6 @@ void TreeBuilder::modulus_operator(void)
     TreeHelper.pop();
     Expr_Node* mod_operator = new Modulus_Expr_Node(left_, right_);
     TreeHelper.push(mod_operator);
-}
-
-void TreeBuilder::open_parenthesis(void)
-{
-    //stackOperators.push('(');
-}
-
-void TreeBuilder::close_parenthesis(void)
-{
-
 }
 
 Expr_Node* TreeBuilder::getRoot()
