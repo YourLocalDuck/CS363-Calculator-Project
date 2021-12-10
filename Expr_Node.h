@@ -67,4 +67,46 @@ public:
     virtual ~Add_Expr_Node();
     virtual int eval(void);
 };
+
+class Subtract_Expr_Node : public Binary_Expr_Node
+{
+protected:
+    Expr_Node *right_;
+    Expr_Node *left_;
+    friend class TreeBuilder;
+
+public:
+    Subtract_Expr_Node(/* args */);
+    Subtract_Expr_Node(Expr_Node* n1, Expr_Node* n2);
+    virtual ~Subtract_Expr_Node();
+    virtual int eval(void);
+};
+
+class Multiplication_Expr_Node : public Binary_Expr_Node
+{
+protected:
+    Expr_Node *right_;
+    Expr_Node *left_;
+    friend class TreeBuilder;
+
+public:
+    Multiplication_Expr_Node(/* args */);
+    Multiplication_Expr_Node(Expr_Node* n1, Expr_Node* n2);
+    virtual ~Multiplication_Expr_Node();
+    virtual int eval(void);
+};
+
+class Division_Expr_Node : public Binary_Expr_Node
+{
+protected:
+    Expr_Node *right_;
+    Expr_Node *left_;
+    friend class TreeBuilder;
+
+public:
+    Division_Expr_Node(/* args */);
+    Division_Expr_Node(Expr_Node* n1, Expr_Node* n2);
+    virtual ~Division_Expr_Node();
+    virtual int eval(void);
+};
 #endif

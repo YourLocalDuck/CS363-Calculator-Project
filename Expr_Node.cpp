@@ -2,8 +2,8 @@
 
 // START EXPR_NODE CLASS
 Expr_Node::Expr_Node()
-:data(0),
-priority(0)
+    : data(0),
+      priority(0)
 {
 }
 
@@ -24,7 +24,7 @@ bool Expr_Node::insert(int childnum, Expr_Node *newChild)
 // START UNARY_EXPR_NODE CLASS
 
 Unary_Expr_Node::Unary_Expr_Node()
-:child_(nullptr)
+    : child_(nullptr)
 {
 }
 
@@ -56,7 +56,7 @@ bool Unary_Expr_Node::insert(int childnum, Expr_Node *newChild)
         child_ = newChild;
         return true;
         break;
-    
+
     default:
         return false;
         break;
@@ -65,8 +65,8 @@ bool Unary_Expr_Node::insert(int childnum, Expr_Node *newChild)
 
 // START BINARY_EXPR_NODE
 Binary_Expr_Node::Binary_Expr_Node()
-:right_(nullptr),
-left_(nullptr)
+    : right_(nullptr),
+      left_(nullptr)
 {
 }
 
@@ -120,13 +120,13 @@ int Number_Node::eval(void)
 
 // START ADD_EXPR_NODE
 Add_Expr_Node::Add_Expr_Node()
-:left_(nullptr),
-right_(nullptr),
-priority(1)
+    : left_(nullptr),
+      right_(nullptr),
+      priority(1)
 {
 }
 
-Add_Expr_Node::Add_Expr_Node(Expr_Node* n1, Expr_Node* n2)
+Add_Expr_Node::Add_Expr_Node(Expr_Node *n1, Expr_Node *n2)
 {
     left_ = n1;
     right_ = n2;
@@ -141,6 +141,84 @@ int Add_Expr_Node::eval(void)
     if (left_ != nullptr && right_ != nullptr)
     {
         return (left_->eval() + right_->eval());
+    }
+    return -1;
+}
+
+// START SUBTRACT_EXPR_NODE
+Subtract_Expr_Node::Subtract_Expr_Node()
+    : left_(nullptr),
+      right_(nullptr)
+{
+}
+
+Subtract_Expr_Node::Subtract_Expr_Node(Expr_Node *n1, Expr_Node *n2)
+{
+    left_ = n1;
+    right_ = n2;
+}
+
+Subtract_Expr_Node::~Subtract_Expr_Node()
+{
+}
+
+int Subtract_Expr_Node::eval()
+{
+    if (left_ != nullptr && right_ != nullptr)
+    {
+        return (left_->eval() - right_->eval());
+    }
+    return -1;
+}
+
+// START MULTIPLICATION_EXPR_NODE
+Multiplication_Expr_Node::Multiplication_Expr_Node()
+    :left_(nullptr),
+     right_(nullptr)
+{
+}
+
+Multiplication_Expr_Node::Multiplication_Expr_Node(Expr_Node *n1, Expr_Node *n2)
+{
+    left_ = n1;
+    right_ = n2;
+}
+
+Multiplication_Expr_Node::~Multiplication_Expr_Node()
+{
+}
+
+int Multiplication_Expr_Node::eval()
+{
+    if (left_ != nullptr && right_ != nullptr)
+    {
+        return (left_->eval() * right_->eval());
+    }
+    return -1;
+}
+
+// START DIVISION_EXPR_NODE
+Division_Expr_Node::Division_Expr_Node()
+    :left_(nullptr),
+     right_(nullptr)
+{
+}
+
+Division_Expr_Node::Division_Expr_Node(Expr_Node *n1, Expr_Node *n2)
+{
+    left_ = n1;
+    right_ = n2;
+}
+
+Division_Expr_Node::~Division_Expr_Node()
+{
+}
+
+int Division_Expr_Node::eval()
+{
+    if (left_ != nullptr && right_ != nullptr)
+    {
+        return (left_->eval() / right_->eval());
     }
     return -1;
 }

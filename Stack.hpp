@@ -11,8 +11,7 @@
 
 template <typename T>
 Stack<T>::Stack(void)
-    : data_(nullptr),
-      top_(0)
+    : data_(nullptr)
 {
     data_ = new Array<T>();
     this->clear();
@@ -82,12 +81,13 @@ void Stack<T>::pop(void)
         throw empty_exception();
     }
     data_->resize(size()-1);
-    if (size() == 0)
+    /*if (size() == 0)
     {
         top_ = 0;
         return;
-    }
-    top_ = data_->get(size() - 1);
+    }*/
+    if (!this->is_empty())
+        top_ = data_->get(size() - 1);
 
     // Old C Array implementation
     /*if (size_ == 0)
@@ -136,5 +136,5 @@ template <typename T>
 void Stack<T>::clear(void)
 {
     data_->resize(0);
-    top_ = 0;
+    //top_ = 0;
 }

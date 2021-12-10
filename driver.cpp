@@ -3,6 +3,7 @@
 #include <string>
 
 #include "Expr_Node.h"
+
 int main(int argc, char *argv[])
 {
 	Calculator calc;
@@ -28,9 +29,5 @@ int main(int argc, char *argv[])
         }
 	}
 
-	int p[123] = {0};
-	p['+'] = p['-'] = 1, p['/'] = p['*'] = 2, p['^'] = 3,
-    p[')'] = 0;
-	
 	return 0;
 }
