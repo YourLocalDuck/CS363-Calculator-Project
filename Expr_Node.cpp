@@ -222,3 +222,29 @@ int Division_Expr_Node::eval()
     }
     return -1;
 }
+
+// START MODULUS_EXPR_NODE
+Modulus_Expr_Node::Modulus_Expr_Node()
+    :left_(nullptr),
+     right_(nullptr)
+{
+}
+
+Modulus_Expr_Node::Modulus_Expr_Node(Expr_Node *n1, Expr_Node *n2)
+{
+    left_ = n1;
+    right_ = n2;
+}
+
+Modulus_Expr_Node::~Modulus_Expr_Node()
+{
+}
+
+int Modulus_Expr_Node::eval()
+{
+    if (left_ != nullptr && right_ != nullptr)
+    {
+        return (left_->eval() % right_->eval());
+    }
+    return -1;
+}

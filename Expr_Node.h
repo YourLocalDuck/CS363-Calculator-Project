@@ -109,4 +109,18 @@ public:
     virtual ~Division_Expr_Node();
     virtual int eval(void);
 };
+
+class Modulus_Expr_Node : public Binary_Expr_Node
+{
+protected:
+    Expr_Node *right_;
+    Expr_Node *left_;
+    friend class TreeBuilder;
+
+public:
+    Modulus_Expr_Node(/* args */);
+    Modulus_Expr_Node(Expr_Node* n1, Expr_Node* n2);
+    virtual ~Modulus_Expr_Node();
+    virtual int eval(void);
+};
 #endif

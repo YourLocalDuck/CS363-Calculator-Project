@@ -24,6 +24,7 @@ public:
     virtual void subtract_operator(void);
     virtual void multiplication_operator(void);
     virtual void division_operator(void);
+    virtual void modulus_operator(void);
 
     virtual void open_parenthesis(void);
     virtual void close_parenthesis(void);

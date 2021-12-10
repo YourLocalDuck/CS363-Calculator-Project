@@ -81,6 +81,16 @@ void TreeBuilder::division_operator(void)
     TreeHelper.push(divide_operator);
 }
 
+void TreeBuilder::modulus_operator(void)
+{
+    Expr_Node* right_ = TreeHelper.top();
+    TreeHelper.pop();
+    Expr_Node* left_ = TreeHelper.top();
+    TreeHelper.pop();
+    Expr_Node* mod_operator = new Modulus_Expr_Node(left_, right_);
+    TreeHelper.push(mod_operator);
+}
+
 void TreeBuilder::open_parenthesis(void)
 {
     //stackOperators.push('(');

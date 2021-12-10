@@ -114,6 +114,8 @@ bool Calculator::parse_expr()
             this->builder.multiplication_operator();
         else if (token == "/")
             this->builder.division_operator();
+        else if (token == "%")
+            this->builder.modulus_operator();
         else
         {
             this->builder.build_number(std::stoi(token));
