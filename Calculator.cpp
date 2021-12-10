@@ -52,6 +52,8 @@ bool Calculator::parse_expr()
 
 int Calculator::evaluate()
 {
+    if (Root != nullptr)
+        delete Root;
     parse_expr(); // Build tree and update this->root
     Root->accept(eval); // Using visitor pattern to traverse the tree in a post order fashion.
     int result = eval.result(); // Final result of tree
@@ -67,5 +69,6 @@ void Calculator::getExpression() // Print tree In Order
 
 Calculator::~Calculator()
 {
-    delete Root;
+    if (Root != nullptr)
+        delete Root;
 }
