@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 		if (calc.insert(exp))
         {
             std::cout << calc.evaluate() << std::endl;
+			//calc.getExpression();
         }
         else
         {

@@ -2,12 +2,17 @@
 
 // START EXPR_NODE CLASS
 Expr_Node::Expr_Node()
-    : data(0)
+    : data_(0)
 {
 }
 
 Expr_Node::~Expr_Node()
 {
+}
+
+int Expr_Node::data() const
+{
+    return data_;
 }
 
 // START UNARY_EXPR_NODE CLASS
@@ -41,10 +46,20 @@ Binary_Expr_Node::~Binary_Expr_Node()
     delete left_;
 }
 
+Expr_Node* Binary_Expr_Node::left() const
+{
+    return left_;
+}
+
+Expr_Node* Binary_Expr_Node::right() const
+{
+    return right_;
+}
+
 //START NUMBER_NODE
 Number_Node::Number_Node(int number)
 {
-    data = number;
+    data_ = number;
 }
 
 Number_Node::~Number_Node()
@@ -53,7 +68,12 @@ Number_Node::~Number_Node()
 
 int Number_Node::eval(void)
 {
-    return data;
+    return data_;
+}
+
+void Number_Node::accept(Expr_Node_Visitor &v)
+{
+    v.Visit_Number_Node(*this);
 }
 
 // START ADD_EXPR_NODE
@@ -73,6 +93,16 @@ Add_Expr_Node::~Add_Expr_Node()
 {
 }
 
+Expr_Node* Add_Expr_Node::left() const
+{
+    return left_;
+}
+
+Expr_Node* Add_Expr_Node::right() const
+{
+    return right_;
+}
+
 int Add_Expr_Node::eval(void)
 {
     if (left_ != nullptr && right_ != nullptr)
@@ -80,6 +110,11 @@ int Add_Expr_Node::eval(void)
         return (left_->eval() + right_->eval());
     }
     return -1;
+}
+
+void Add_Expr_Node::accept(Expr_Node_Visitor &v)
+{
+    v.Visit_Addition_Node(*this);
 }
 
 // START SUBTRACT_EXPR_NODE
@@ -99,6 +134,16 @@ Subtract_Expr_Node::~Subtract_Expr_Node()
 {
 }
 
+Expr_Node* Subtract_Expr_Node::left() const
+{
+    return left_;
+}
+
+Expr_Node* Subtract_Expr_Node::right() const
+{
+    return right_;
+}
+
 int Subtract_Expr_Node::eval()
 {
     if (left_ != nullptr && right_ != nullptr)
@@ -108,10 +153,15 @@ int Subtract_Expr_Node::eval()
     return -1;
 }
 
+void Subtract_Expr_Node::accept(Expr_Node_Visitor &v)
+{
+    v.Visit_Subtraction_Node(*this);
+}
+
 // START MULTIPLICATION_EXPR_NODE
 Multiplication_Expr_Node::Multiplication_Expr_Node()
-    :left_(nullptr),
-     right_(nullptr)
+    : left_(nullptr),
+      right_(nullptr)
 {
 }
 
@@ -125,6 +175,16 @@ Multiplication_Expr_Node::~Multiplication_Expr_Node()
 {
 }
 
+Expr_Node* Multiplication_Expr_Node::left() const
+{
+    return left_;
+}
+
+Expr_Node* Multiplication_Expr_Node::right() const
+{
+    return right_;
+}
+
 int Multiplication_Expr_Node::eval()
 {
     if (left_ != nullptr && right_ != nullptr)
@@ -134,10 +194,15 @@ int Multiplication_Expr_Node::eval()
     return -1;
 }
 
+void Multiplication_Expr_Node::accept(Expr_Node_Visitor &v)
+{
+    v.Visit_Multiplication_Node(*this);
+}
+
 // START DIVISION_EXPR_NODE
 Division_Expr_Node::Division_Expr_Node()
-    :left_(nullptr),
-     right_(nullptr)
+    : left_(nullptr),
+      right_(nullptr)
 {
 }
 
@@ -151,6 +216,16 @@ Division_Expr_Node::~Division_Expr_Node()
 {
 }
 
+Expr_Node* Division_Expr_Node::left() const
+{
+    return left_;
+}
+
+Expr_Node* Division_Expr_Node::right() const
+{
+    return right_;
+}
+
 int Division_Expr_Node::eval()
 {
     if (left_ != nullptr && right_ != nullptr)
@@ -160,10 +235,15 @@ int Division_Expr_Node::eval()
     return -1;
 }
 
+void Division_Expr_Node::accept(Expr_Node_Visitor &v)
+{
+    v.Visit_Division_Node(*this);
+}
+
 // START MODULUS_EXPR_NODE
 Modulus_Expr_Node::Modulus_Expr_Node()
-    :left_(nullptr),
-     right_(nullptr)
+    : left_(nullptr),
+      right_(nullptr)
 {
 }
 
@@ -177,6 +257,16 @@ Modulus_Expr_Node::~Modulus_Expr_Node()
 {
 }
 
+Expr_Node* Modulus_Expr_Node::left() const
+{
+    return left_;
+}
+
+Expr_Node* Modulus_Expr_Node::right() const
+{
+    return right_;
+}
+
 int Modulus_Expr_Node::eval()
 {
     if (left_ != nullptr && right_ != nullptr)
@@ -184,4 +274,9 @@ int Modulus_Expr_Node::eval()
         return (left_->eval() % right_->eval());
     }
     return -1;
+}
+
+void Modulus_Expr_Node::accept(Expr_Node_Visitor &v)
+{
+    v.Visit_Modulus_Node(*this);
 }

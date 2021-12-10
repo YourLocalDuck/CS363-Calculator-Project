@@ -1,5 +1,6 @@
 #include "Calculator.h"
 #include "Calculator.inl"
+#include <iostream>
 
 Calculator::Calculator(/* args */)
     : Root(nullptr)
@@ -52,7 +53,16 @@ bool Calculator::parse_expr()
 int Calculator::evaluate()
 {
     parse_expr();
-    return Root->eval();
+    Root->accept(eval);
+    int result = eval.result();
+    return result;
+    //return Root->eval();
+}
+
+void Calculator::getExpression()
+{
+    Root->accept(IOExp);
+    std::cout << std::endl;
 }
 
 Calculator::~Calculator()

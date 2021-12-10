@@ -4,6 +4,7 @@
 #include <string>
 #include <sstream>
 #include "TreeBuilder.h"
+#include "Print_Inorder_Expression.h"
 
 class Calculator
 {
@@ -12,12 +13,16 @@ private:
     std::string expression;
     bool parse_expr();
     Expr_Node* Root;
+    Eval_Expr_Tree eval;
+    Print_Inorder_Expression IOExp;
+
 public:
     Calculator(/* args */);
     Calculator(std::string expression);
     ~Calculator();
     bool insert(std::string insertExpression);
     int evaluate(void);
+    void getExpression(void);
 };
 
 #endif
