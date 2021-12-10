@@ -1,6 +1,6 @@
-// $Id: assignment2.mpc 378 2010-02-07 22:09:38Z hillj $
+// $Id: assignment4.mpc 378 2010-02-07 22:09:38Z hillj $
 
-project (assignment2) {
+project (assignment4) {
   exename = assignment4
   install = .
  
@@ -10,18 +10,18 @@ project (assignment2) {
 
   Source_Files {
     driver.cpp
+    Calculator.cpp
+    Eval_Expr_Tree.cpp
+    Expr_Node.cpp
+    Print_Inorder_Expression.cpp
+    TreeBuilder.cpp
   }
 
   Template_Files {
     Array_Base.hpp
     Array.hpp
-    Calculator.cpp
-    Eval_Expr_Tree.cpp
-    Expr_Node.cpp
     Fixed_Array.hpp
-    Print_Inorder_Expression.cpp
     Queue.hpp
     Stack.hpp
-    TreeBuilder.cpp
   }
 }
