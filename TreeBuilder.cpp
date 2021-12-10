@@ -8,15 +8,9 @@ TreeBuilder::TreeBuilder()
 
 TreeBuilder::~TreeBuilder()
 {
-    if (Root != nullptr)
-    {
-        delete Root;
-        Root = nullptr;
-    }
     while (!TreeHelper.is_empty())
     {
-        Expr_Node* toDelete = TreeHelper.top();
-        delete toDelete;
+        delete TreeHelper.top();
         TreeHelper.pop();
     }
 }

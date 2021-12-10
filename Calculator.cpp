@@ -67,9 +67,5 @@ void Calculator::getExpression() // Print tree In Order
 
 Calculator::~Calculator()
 {
-    if (Root != nullptr)
-    {
-        delete Root;
-        Root = nullptr;
-    }
+    delete Root;
 }
