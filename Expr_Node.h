@@ -3,6 +3,11 @@
 
 #include "Expr_Node_Visitor.h"
 
+// COMMENT Separate the class definition and class implementation into
+// a header and source file, respectively.
+//
+// FIX: I've completely redesigned the program from when this comment was made. Class definitions and implementations should be separated.
+
 // Abstract Basic Node. Pure Virtual class.
 class Expr_Node
 {
