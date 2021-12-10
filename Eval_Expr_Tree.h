@@ -3,6 +3,7 @@
 
 #include "Expr_Node_Visitor.h"
 
+// This class uses the Visitor Design pattern to recursively do whatever operation corresponds to the node type to its children and return the result upwards. In the case of Number Node, its only job is to send its own data upwards so that the higher operators can work with it.
 class Eval_Expr_Tree : public Expr_Node_Visitor
 {
 public:

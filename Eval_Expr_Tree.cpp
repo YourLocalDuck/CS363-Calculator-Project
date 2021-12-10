@@ -62,5 +62,6 @@ void Eval_Expr_Tree::Visit_Modulus_Node(const Modulus_Expr_Node &node)
 
 void Eval_Expr_Tree::Visit_Number_Node(const Number_Node &node)
 {
+    // Just send data
     result_ = node.data();
 }

@@ -2,8 +2,6 @@
 #include <iostream>
 #include <string>
 
-#include "Expr_Node.h"
-
 int main(int argc, char *argv[])
 {
 	Calculator calc;
@@ -22,7 +20,7 @@ int main(int argc, char *argv[])
 		if (calc.insert(exp))
         {
             std::cout << calc.evaluate() << std::endl;
-			//calc.getExpression();
+			//calc.getExpression(); // This is used for In order output
         }
         else
         {

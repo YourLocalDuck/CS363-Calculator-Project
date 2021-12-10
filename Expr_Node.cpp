@@ -1,6 +1,7 @@
 #include "Expr_Node.h"
 
-// START EXPR_NODE CLASS
+// START EXPR_NODE CLASS.
+// Abstract Basic Node. Pure Virtual class.
 Expr_Node::Expr_Node()
     : data_(0)
 {
@@ -16,7 +17,7 @@ int Expr_Node::data() const
 }
 
 // START UNARY_EXPR_NODE CLASS
-
+// Pure Virtual class for Unary class with one child object.
 Unary_Expr_Node::Unary_Expr_Node()
     : child_(nullptr)
 {
@@ -27,13 +28,14 @@ Unary_Expr_Node::~Unary_Expr_Node()
     delete child_;
 }
 
-/*int Unary_Expr_Node::eval(void)
+int Unary_Expr_Node::eval(void)
 {
     if (this->child_ != nullptr)
         return this->child_->eval();
-}*/
+}
 
 // START BINARY_EXPR_NODE
+// Pure Virtual class for Unary class with two child objects.
 Binary_Expr_Node::Binary_Expr_Node()
     : right_(nullptr),
       left_(nullptr)
@@ -57,6 +59,7 @@ Expr_Node* Binary_Expr_Node::right() const
 }
 
 //START NUMBER_NODE
+// Number Node's main purpose is to hold a int data, and output it when asked.
 Number_Node::Number_Node(int number)
 {
     data_ = number;
@@ -77,6 +80,7 @@ void Number_Node::accept(Expr_Node_Visitor &v)
 }
 
 // START ADD_EXPR_NODE
+// Add_Expr_Node's function is to add its children together recursively when asked.
 Add_Expr_Node::Add_Expr_Node()
     : left_(nullptr),
       right_(nullptr)
@@ -118,6 +122,7 @@ void Add_Expr_Node::accept(Expr_Node_Visitor &v)
 }
 
 // START SUBTRACT_EXPR_NODE
+// Add_Expr_Node's function is to subtract its left child buy its right child recursively when asked.
 Subtract_Expr_Node::Subtract_Expr_Node()
     : left_(nullptr),
       right_(nullptr)
@@ -159,6 +164,7 @@ void Subtract_Expr_Node::accept(Expr_Node_Visitor &v)
 }
 
 // START MULTIPLICATION_EXPR_NODE
+// Add_Expr_Node's function is to multiply its children together recursively when asked.
 Multiplication_Expr_Node::Multiplication_Expr_Node()
     : left_(nullptr),
       right_(nullptr)
@@ -200,6 +206,7 @@ void Multiplication_Expr_Node::accept(Expr_Node_Visitor &v)
 }
 
 // START DIVISION_EXPR_NODE
+// Add_Expr_Node's function is to divide its left child buy its right child recursively when asked.
 Division_Expr_Node::Division_Expr_Node()
     : left_(nullptr),
       right_(nullptr)
@@ -241,6 +248,7 @@ void Division_Expr_Node::accept(Expr_Node_Visitor &v)
 }
 
 // START MODULUS_EXPR_NODE
+// Add_Expr_Node's function is to modulo its left child buy its right child recursively when asked.
 Modulus_Expr_Node::Modulus_Expr_Node()
     : left_(nullptr),
       right_(nullptr)

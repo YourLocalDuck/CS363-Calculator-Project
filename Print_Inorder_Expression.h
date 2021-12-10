@@ -4,6 +4,7 @@
 #include <fstream>
 #include "Expr_Node_Visitor.h"
 
+// This class is just Eval_Expr_Tree, but it is In order instead of post order, and instead of evaluating, it will just output the tree recursively.
 class Print_Inorder_Expression : public Expr_Node_Visitor
 {
 public:

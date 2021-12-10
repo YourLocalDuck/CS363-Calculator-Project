@@ -1,7 +1,7 @@
 // $Id: assignment2.mpc 378 2010-02-07 22:09:38Z hillj $
 
 project (assignment2) {
-  exename = assignment2
+  exename = assignment4
   install = .
  
   specific (make, gnuace) {
@@ -13,9 +13,15 @@ project (assignment2) {
   }
 
   Template_Files {
-    Array.cpp
-    Fixed_Array.cpp
-    Stack.cpp
-    Queue.cpp
+    Array_Base.hpp
+    Array.hpp
+    Calculator.cpp
+    Eval_Expr_Tree.cpp
+    Expr_Node.cpp
+    Fixed_Array.hpp
+    Print_Inorder_Expression.cpp
+    Queue.hpp
+    Stack.hpp
+    TreeBuilder.cpp
   }
 }

@@ -2,13 +2,12 @@
 #define _Expr_Node_H_
 
 #include "Expr_Node_Visitor.h"
-#include "Eval_Expr_Tree.h"
 
+// Abstract Basic Node. Pure Virtual class.
 class Expr_Node
 {
 protected:
     int data_;
-    friend class TreeBuilder;
 
 public:
     Expr_Node();
@@ -19,10 +18,10 @@ public:
     
 };
 
+// Pure Virtual class for Unary class with one child object.
 class Unary_Expr_Node : public Expr_Node
 {
 protected:
-    //friend class TreeBuilder;
     Expr_Node *child_;
 
 public:
@@ -31,10 +30,10 @@ public:
     virtual int eval(void) = 0;
 };
 
+// Pure Virtual class for Unary class with two child objects.
 class Binary_Expr_Node : public Expr_Node
 {
 protected:
-    //friend class TreeBuilder;
     Expr_Node *right_;
     Expr_Node *left_;
 
@@ -46,6 +45,7 @@ public:
     virtual Expr_Node* right(void) const;
 };
 
+// Number Node's main purpose is to hold a int data, and output it when asked.
 class Number_Node : public Expr_Node
 {
 public:
@@ -55,6 +55,7 @@ public:
     virtual void accept(Expr_Node_Visitor &v);
 };
 
+// Add_Expr_Node's function is to add its children together recursively when asked.
 class Add_Expr_Node : public Binary_Expr_Node
 {
 protected:
@@ -71,6 +72,7 @@ public:
     virtual void accept(Expr_Node_Visitor &v);
 };
 
+// Add_Expr_Node's function is to subtract its left child buy its right child recursively when asked.
 class Subtract_Expr_Node : public Binary_Expr_Node
 {
 protected:
@@ -86,6 +88,7 @@ public:
     virtual void accept(Expr_Node_Visitor &v);
 };
 
+// Add_Expr_Node's function is to multiply its children together recursively when asked.
 class Multiplication_Expr_Node : public Binary_Expr_Node
 {
 protected:
@@ -102,6 +105,7 @@ public:
     virtual void accept(Expr_Node_Visitor &v);
 };
 
+// Add_Expr_Node's function is to divide its left child buy its right child recursively when asked.
 class Division_Expr_Node : public Binary_Expr_Node
 {
 protected:
@@ -118,6 +122,7 @@ public:
     virtual void accept(Expr_Node_Visitor &v);
 };
 
+// Add_Expr_Node's function is to modulo its left child buy its right child recursively when asked.
 class Modulus_Expr_Node : public Binary_Expr_Node
 {
 protected:

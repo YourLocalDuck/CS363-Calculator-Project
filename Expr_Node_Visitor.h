@@ -8,7 +8,9 @@ class Multiplication_Expr_Node;
 class Division_Expr_Node;
 class Modulus_Expr_Node;
 class Number_Node;
+// Forward declaring these concrete classes to avoid circular dependency.
 
+// Class Expr_Node_Visitor is a pure virtual class used to implement the visitor pattern to evaluate or traverse an expression tree.
 class Expr_Node_Visitor
 {
 public:
