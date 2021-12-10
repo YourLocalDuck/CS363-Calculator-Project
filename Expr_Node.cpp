@@ -82,11 +82,6 @@ int Add_Expr_Node::eval(void)
     return -1;
 }
 
-void Add_Expr_Node::accept(Expr_Node_Visitor & v)
-{
-    v.Visit_Addition_Node(*this);
-}
-
 // START SUBTRACT_EXPR_NODE
 Subtract_Expr_Node::Subtract_Expr_Node()
     : left_(nullptr),

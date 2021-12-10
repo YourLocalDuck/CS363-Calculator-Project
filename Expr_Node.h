@@ -1,6 +1,5 @@
 #ifndef _Expr_Node_H_
 #define _Expr_Node_H_
-#include "Expr_Node_Visitor.h"
 
 class Expr_Node
 {
@@ -12,7 +11,6 @@ public:
     Expr_Node();
     virtual ~Expr_Node();
     virtual int eval(void) = 0;
-    virtual void accept (Expr_Node_Visitor & v) = 0;
 };
 
 class Unary_Expr_Node : public Expr_Node
@@ -53,14 +51,12 @@ class Add_Expr_Node : public Binary_Expr_Node
 protected:
     Expr_Node *right_;
     Expr_Node *left_;
-    //friend class TreeBuilder;
 
 public:
     Add_Expr_Node(/* args */);
     Add_Expr_Node(Expr_Node* n1, Expr_Node* n2);
     virtual ~Add_Expr_Node();
     virtual int eval(void);
-    virtual void accept(Expr_Node_Visitor & v);
 };
 
 class Subtract_Expr_Node : public Binary_Expr_Node
@@ -68,7 +64,6 @@ class Subtract_Expr_Node : public Binary_Expr_Node
 protected:
     Expr_Node *right_;
     Expr_Node *left_;
-    //friend class TreeBuilder;
 
 public:
     Subtract_Expr_Node(/* args */);
@@ -82,7 +77,6 @@ class Multiplication_Expr_Node : public Binary_Expr_Node
 protected:
     Expr_Node *right_;
     Expr_Node *left_;
-    //friend class TreeBuilder;
 
 public:
     Multiplication_Expr_Node(/* args */);
@@ -96,7 +90,6 @@ class Division_Expr_Node : public Binary_Expr_Node
 protected:
     Expr_Node *right_;
     Expr_Node *left_;
-    //friend class TreeBuilder;
 
 public:
     Division_Expr_Node(/* args */);
@@ -110,8 +103,6 @@ class Modulus_Expr_Node : public Binary_Expr_Node
 protected:
     Expr_Node *right_;
     Expr_Node *left_;
-    //friend class TreeBuilder;
-
 public:
     Modulus_Expr_Node(/* args */);
     Modulus_Expr_Node(Expr_Node* n1, Expr_Node* n2);
