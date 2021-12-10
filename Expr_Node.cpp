@@ -25,7 +25,11 @@ Unary_Expr_Node::Unary_Expr_Node()
 
 Unary_Expr_Node::~Unary_Expr_Node()
 {
-    delete child_;
+    if (child_ != nullptr)
+    {
+        delete child_;
+        child_ = nullptr;
+    }
 }
 
 int Unary_Expr_Node::eval(void)
@@ -44,16 +48,24 @@ Binary_Expr_Node::Binary_Expr_Node()
 
 Binary_Expr_Node::~Binary_Expr_Node()
 {
-    delete right_;
-    delete left_;
+    if (left_ != nullptr)
+    {
+        delete left_;
+        left_ = nullptr;
+    }
+    if (right_ != nullptr)
+    {
+        delete right_;
+        right_ = nullptr;
+    }
 }
 
-Expr_Node* Binary_Expr_Node::left() const
+Expr_Node *Binary_Expr_Node::left() const
 {
     return left_;
 }
 
-Expr_Node* Binary_Expr_Node::right() const
+Expr_Node *Binary_Expr_Node::right() const
 {
     return right_;
 }
@@ -95,14 +107,24 @@ Add_Expr_Node::Add_Expr_Node(Expr_Node *n1, Expr_Node *n2)
 
 Add_Expr_Node::~Add_Expr_Node()
 {
+    if (left_ != nullptr)
+    {
+        delete left_;
+        left_ = nullptr;
+    }
+    if (right_ != nullptr)
+    {
+        delete right_;
+        right_ = nullptr;
+    }
 }
 
-Expr_Node* Add_Expr_Node::left() const
+Expr_Node *Add_Expr_Node::left() const
 {
     return left_;
 }
 
-Expr_Node* Add_Expr_Node::right() const
+Expr_Node *Add_Expr_Node::right() const
 {
     return right_;
 }
@@ -137,14 +159,24 @@ Subtract_Expr_Node::Subtract_Expr_Node(Expr_Node *n1, Expr_Node *n2)
 
 Subtract_Expr_Node::~Subtract_Expr_Node()
 {
+    if (left_ != nullptr)
+    {
+        delete left_;
+        left_ = nullptr;
+    }
+    if (right_ != nullptr)
+    {
+        delete right_;
+        right_ = nullptr;
+    }
 }
 
-Expr_Node* Subtract_Expr_Node::left() const
+Expr_Node *Subtract_Expr_Node::left() const
 {
     return left_;
 }
 
-Expr_Node* Subtract_Expr_Node::right() const
+Expr_Node *Subtract_Expr_Node::right() const
 {
     return right_;
 }
@@ -179,14 +211,24 @@ Multiplication_Expr_Node::Multiplication_Expr_Node(Expr_Node *n1, Expr_Node *n2)
 
 Multiplication_Expr_Node::~Multiplication_Expr_Node()
 {
+    if (left_ != nullptr)
+    {
+        delete left_;
+        left_ = nullptr;
+    }
+    if (right_ != nullptr)
+    {
+        delete right_;
+        right_ = nullptr;
+    }
 }
 
-Expr_Node* Multiplication_Expr_Node::left() const
+Expr_Node *Multiplication_Expr_Node::left() const
 {
     return left_;
 }
 
-Expr_Node* Multiplication_Expr_Node::right() const
+Expr_Node *Multiplication_Expr_Node::right() const
 {
     return right_;
 }
@@ -221,14 +263,24 @@ Division_Expr_Node::Division_Expr_Node(Expr_Node *n1, Expr_Node *n2)
 
 Division_Expr_Node::~Division_Expr_Node()
 {
+    if (left_ != nullptr)
+    {
+        delete left_;
+        left_ = nullptr;
+    }
+    if (right_ != nullptr)
+    {
+        delete right_;
+        right_ = nullptr;
+    }
 }
 
-Expr_Node* Division_Expr_Node::left() const
+Expr_Node *Division_Expr_Node::left() const
 {
     return left_;
 }
 
-Expr_Node* Division_Expr_Node::right() const
+Expr_Node *Division_Expr_Node::right() const
 {
     return right_;
 }
@@ -263,14 +315,24 @@ Modulus_Expr_Node::Modulus_Expr_Node(Expr_Node *n1, Expr_Node *n2)
 
 Modulus_Expr_Node::~Modulus_Expr_Node()
 {
+    if (left_ != nullptr)
+    {
+        delete left_;
+        left_ = nullptr;
+    }
+    if (right_ != nullptr)
+    {
+        delete right_;
+        right_ = nullptr;
+    }
 }
 
-Expr_Node* Modulus_Expr_Node::left() const
+Expr_Node *Modulus_Expr_Node::left() const
 {
     return left_;
 }
 
-Expr_Node* Modulus_Expr_Node::right() const
+Expr_Node *Modulus_Expr_Node::right() const
 {
     return right_;
 }

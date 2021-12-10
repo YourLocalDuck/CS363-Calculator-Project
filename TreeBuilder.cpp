@@ -8,7 +8,17 @@ TreeBuilder::TreeBuilder()
 
 TreeBuilder::~TreeBuilder()
 {
-    delete Root;
+    if (Root != nullptr)
+    {
+        delete Root;
+        Root = nullptr;
+    }
+    while (!TreeHelper.is_empty())
+    {
+        Expr_Node* toDelete = TreeHelper.top();
+        delete toDelete;
+        TreeHelper.pop();
+    }
 }
 
 void TreeBuilder::build_number(int value)
