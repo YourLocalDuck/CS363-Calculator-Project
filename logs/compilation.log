@@ -1,0 +1,15 @@
+Generating 'make' output using default input
+Generation Time: 1s
+make[1]: Entering directory `/home/hilljh/cs363-sandbox/assignment4/prajarub/cs363-fall2021-assignment4'
+rm -rf driver.o Calculator.o Eval_Expr_Tree.o Expr_Node.o Print_Inorder_Expression.o TreeBuilder.o
+rm -rf ./assignment4
+make[1]: Leaving directory `/home/hilljh/cs363-sandbox/assignment4/prajarub/cs363-fall2021-assignment4'
+make[1]: Entering directory `/home/hilljh/cs363-sandbox/assignment4/prajarub/cs363-fall2021-assignment4'
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "driver.o" driver.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Calculator.o" Calculator.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Eval_Expr_Tree.o" Eval_Expr_Tree.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Expr_Node.o" Expr_Node.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Print_Inorder_Expression.o" Print_Inorder_Expression.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "TreeBuilder.o" TreeBuilder.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -L"." driver.o Calculator.o Eval_Expr_Tree.o Expr_Node.o Print_Inorder_Expression.o TreeBuilder.o -ldl -lrt -lpthread -o "assignment4"
+make[1]: Leaving directory `/home/hilljh/cs363-sandbox/assignment4/prajarub/cs363-fall2021-assignment4'
