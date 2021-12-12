@@ -1,0 +1,12 @@
+Please enter expression: 2
+Please enter expression: -4
+Please enter expression: 15
+Please enter expression: 0
+Please enter expression: 0
+Please enter expression: -121
+Please enter expression: 8
+Please enter expression: -71
+Please enter expression: -3116
+Please enter expression: terminate called after throwing an instance of 'std::invalid_argument'
+  what():  stoi
+Command '/home/hilljh/cs363-sandbox/assignment4/prajarub/cs363-fall2021-assignment4/assignment4' died with <Signals.SIGABRT: 6>.
