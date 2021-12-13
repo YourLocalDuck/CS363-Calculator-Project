@@ -112,12 +112,12 @@ public:
 private:
   // add member variable here
   T top_;
-    
-    // COMMENT You are supposed to use your array class. No feedback
-    // will be provided since the array class and raw C array result
-    // in a completely different design.
 
-    // FIX: I misread the instructions. I redesigned the Stack class to use the Array class.
+  // COMMENT You are supposed to use your array class. No feedback
+  // will be provided since the array class and raw C array result
+  // in a completely different design.
+
+  // FIX: I misread the instructions. I redesigned the Stack class to use the Array class.
 
   Array<T> *data_;
 };

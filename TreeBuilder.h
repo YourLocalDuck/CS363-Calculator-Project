@@ -10,13 +10,13 @@
 class TreeBuilder
 {
 protected:
-    Expr_Node* Root;
-    Stack<Expr_Node*> TreeHelper;
-    
+    Expr_Node *Root;
+    Stack<Expr_Node *> TreeHelper;
+
 public:
     TreeBuilder();
     ~TreeBuilder();
-    virtual Expr_Node* getRoot();
+    virtual Expr_Node *getRoot();
     virtual void build_number(int value);
     virtual void add_operator(void);
     virtual void subtract_operator(void);

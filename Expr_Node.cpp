@@ -36,6 +36,8 @@ int Unary_Expr_Node::eval(void)
 {
     if (this->child_ != nullptr)
         return this->child_->eval();
+    else
+        return 0;
 }
 
 // START BINARY_EXPR_NODE

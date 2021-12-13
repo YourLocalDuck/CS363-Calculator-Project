@@ -2,7 +2,7 @@
 #define _ARRAY_BASE_H_
 #define defaultSize 5
 
-#include <cstring> // for size_t definition
+#include <cstring>   // for size_t definition
 #include <stdexcept> // for std::out_of_bounds exception
 #include <exception>
 
@@ -50,7 +50,7 @@ public:
 
     // Traverse the array from start and find the element.
     virtual int find(T element, size_t start) const;
-    
+
     // Check if this == rhs as in size and elements
     virtual bool operator==(const Array_Base &rhs) const;
 

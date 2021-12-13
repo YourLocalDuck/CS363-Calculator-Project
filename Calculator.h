@@ -13,7 +13,7 @@ private:
     TreeBuilder builder; // Builder Pattern
     std::string expression;
     bool parse_expr();
-    Expr_Node* Root;
+    Expr_Node *Root;
     Eval_Expr_Tree eval; // Composite and Visitor Pattern
     Print_Inorder_Expression IOExp;
 

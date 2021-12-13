@@ -47,7 +47,7 @@ Stack<T>::~Stack(void)
 template <typename T>
 void Stack<T>::push(T element)
 {
-    data_->resize(size()+1);
+    data_->resize(size() + 1);
     data_->set((size() - 1), element);
     top_ = element;
 
@@ -76,11 +76,11 @@ void Stack<T>::push(T element)
 template <typename T>
 void Stack<T>::pop(void)
 {
-    if (size()== 0)
+    if (size() == 0)
     {
         throw empty_exception();
     }
-    data_->resize(size()-1);
+    data_->resize(size() - 1);
     /*if (size() == 0)
     {
         top_ = 0;

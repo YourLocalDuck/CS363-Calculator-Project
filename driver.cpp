@@ -18,14 +18,14 @@ int main(int argc, char *argv[])
 			break;
 		}
 		if (calc.insert(exp))
-        {
-            std::cout << calc.evaluate() << std::endl;
+		{
+			std::cout << calc.evaluate() << std::endl;
 			//calc.getExpression(); // This is used for In order output
-        }
-        else
-        {
-            std::cout << "Invalid Expression" << std::endl;
-        }
+		}
+		else
+		{
+			std::cout << "Invalid Expression" << std::endl;
+		}
 	}
 
 	return 0;

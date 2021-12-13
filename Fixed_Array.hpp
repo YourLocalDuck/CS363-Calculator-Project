@@ -9,8 +9,6 @@
 // Fixed_Array
 //
 
-
-
 template <typename T, size_t N>
 Fixed_Array<T, N>::Fixed_Array(void)
 {
@@ -68,10 +66,10 @@ template <typename T, size_t N>
 Fixed_Array<T, N>::~Fixed_Array(void)
 {
     if (this->data_ != nullptr)
-        {
-                delete[] this->data_;
-		this->data_ = nullptr;
-        }
+    {
+        delete[] this->data_;
+        this->data_ = nullptr;
+    }
 }
 
 //

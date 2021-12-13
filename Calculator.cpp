@@ -21,7 +21,6 @@ bool Calculator::insert(std::string insertExpression) // Check for empty string.
     return true;
 }
 
-
 bool Calculator::parse_expr()
 {
     expression = infixToPostFix(expression); // This will use a priority system and method found in Calculator.inl to convert existing Infix expression to postfix, since postfix is more straightforward to build a tree with.
@@ -54,8 +53,8 @@ int Calculator::evaluate()
 {
     if (Root != nullptr)
         delete Root;
-    parse_expr(); // Build tree and update this->root
-    Root->accept(eval); // Using visitor pattern to traverse the tree in a post order fashion.
+    parse_expr();               // Build tree and update this->root
+    Root->accept(eval);         // Using visitor pattern to traverse the tree in a post order fashion.
     int result = eval.result(); // Final result of tree
     return result;
     //return Root->eval(); // Composite pattern to evauluate the tree in post order

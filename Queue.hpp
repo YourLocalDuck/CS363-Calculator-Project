@@ -43,7 +43,7 @@ const Queue<T> &Queue<T>::operator=(const Queue &rhs)
 template <typename T>
 void Queue<T>::enqueue(T element)
 {
-    data_->resize(data_->size()+1);
+    data_->resize(data_->size() + 1);
     data_->set((data_->size() - 1), element);
     front_ = data_->get(0);
 
@@ -69,7 +69,7 @@ void Queue<T>::enqueue(T element)
 template <typename T>
 T Queue<T>::dequeue(void)
 {
-    if (data_->size()== 0)
+    if (data_->size() == 0)
     {
         throw empty_exception();
     }
@@ -79,7 +79,7 @@ T Queue<T>::dequeue(void)
         data_->set(i, data_->get(i + 1));
     }
     front_ = data_->get(0);
-    data_->resize(data_->size()-1);
+    data_->resize(data_->size() - 1);
     return toReturn;
     // Old C array Implementation
     /*if (size_ == 0)

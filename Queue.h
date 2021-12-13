@@ -51,7 +51,7 @@ public:
 
 private:
     T front_;
-    
+
     // COMMENT You are supposed to use your array class. No feedback
     // will be provided since the array class and raw C array result
     // in a completely different design.

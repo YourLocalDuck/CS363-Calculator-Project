@@ -20,7 +20,6 @@ public:
     virtual void accept(Expr_Node_Visitor &v) = 0;
     virtual int eval(void) = 0;
     virtual int data() const;
-    
 };
 
 // Pure Virtual class for Unary class with one child object.
@@ -46,8 +45,8 @@ public:
     Binary_Expr_Node(/* args */);
     virtual ~Binary_Expr_Node();
     virtual int eval(void) = 0;
-    virtual Expr_Node* left(void) const;
-    virtual Expr_Node* right(void) const;
+    virtual Expr_Node *left(void) const;
+    virtual Expr_Node *right(void) const;
 };
 
 // Number Node's main purpose is to hold a int data, and output it when asked.
@@ -71,8 +70,8 @@ public:
     Add_Expr_Node(/* args */);
     Add_Expr_Node(Expr_Node *n1, Expr_Node *n2);
     virtual ~Add_Expr_Node();
-    virtual Expr_Node* left(void) const;
-    virtual Expr_Node* right(void) const;
+    virtual Expr_Node *left(void) const;
+    virtual Expr_Node *right(void) const;
     virtual int eval(void);
     virtual void accept(Expr_Node_Visitor &v);
 };
@@ -83,12 +82,13 @@ class Subtract_Expr_Node : public Binary_Expr_Node
 protected:
     Expr_Node *right_;
     Expr_Node *left_;
+
 public:
     Subtract_Expr_Node(/* args */);
     Subtract_Expr_Node(Expr_Node *n1, Expr_Node *n2);
     virtual ~Subtract_Expr_Node();
-    virtual Expr_Node* left(void) const;
-    virtual Expr_Node* right(void) const;
+    virtual Expr_Node *left(void) const;
+    virtual Expr_Node *right(void) const;
     virtual int eval(void);
     virtual void accept(Expr_Node_Visitor &v);
 };
@@ -104,8 +104,8 @@ public:
     Multiplication_Expr_Node(/* args */);
     Multiplication_Expr_Node(Expr_Node *n1, Expr_Node *n2);
     virtual ~Multiplication_Expr_Node();
-    virtual Expr_Node* left(void) const;
-    virtual Expr_Node* right(void) const;
+    virtual Expr_Node *left(void) const;
+    virtual Expr_Node *right(void) const;
     virtual int eval(void);
     virtual void accept(Expr_Node_Visitor &v);
 };
@@ -121,8 +121,8 @@ public:
     Division_Expr_Node(/* args */);
     Division_Expr_Node(Expr_Node *n1, Expr_Node *n2);
     virtual ~Division_Expr_Node();
-    virtual Expr_Node* left(void) const;
-    virtual Expr_Node* right(void) const;
+    virtual Expr_Node *left(void) const;
+    virtual Expr_Node *right(void) const;
     virtual int eval(void);
     virtual void accept(Expr_Node_Visitor &v);
 };
@@ -138,8 +138,8 @@ public:
     Modulus_Expr_Node(/* args */);
     Modulus_Expr_Node(Expr_Node *n1, Expr_Node *n2);
     virtual ~Modulus_Expr_Node();
-    virtual Expr_Node* left(void) const;
-    virtual Expr_Node* right(void) const;
+    virtual Expr_Node *left(void) const;
+    virtual Expr_Node *right(void) const;
     virtual int eval(void);
     virtual void accept(Expr_Node_Visitor &v);
 };

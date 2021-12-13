@@ -76,4 +76,3 @@ std::string infixToPostFix(std::string ifExpression)
     pfExpression.pop_back();
     return pfExpression;
 }
-
